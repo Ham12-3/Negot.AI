@@ -64,7 +64,7 @@ app.use(
     }),
     cookie: {
       secure: true, // Use secure cookies in production
-      sameSite: "lax", // Cross-site cookie settings
+      sameSite: "none", // Cross-site cookie settings
       maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true, // 1-day expiration
     },
