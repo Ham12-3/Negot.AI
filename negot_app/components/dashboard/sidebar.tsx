@@ -1,5 +1,5 @@
 'use client'
-import { cn } from "@/api/utils";
+import { cn } from "@/pages/api/utils";
 import { FileText, Home, LayoutDashboard, Settings } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

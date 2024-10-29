@@ -2,7 +2,7 @@
 
 
 import UserContracts from "@/components/dashboard/user-contract";
-import { UploadModal } from "@/components/modals/upload-modal";
+import { UploadModal } from "@/modals/upload-modal";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 

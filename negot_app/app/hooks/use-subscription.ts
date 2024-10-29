@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useCurrentUser } from "./use-current-user";
 import { useQuery } from "@tanstack/react-query";
-import { api } from "@/api/api";
+import { api } from "@/pages/api/api";
 
 export function useSubscription() {
   const {

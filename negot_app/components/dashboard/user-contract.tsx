@@ -1,5 +1,5 @@
 import { ContractAnalysis } from "@/interfaces/contract.interface";
-import { api } from "@/api/api";
+import { api } from "@/pages/api/api";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -23,7 +23,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import { UploadModal } from "../modals/upload-modal";
+import { UploadModal } from "../../modals/upload-modal";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
@@ -39,7 +39,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog";
-import { cn } from "@/api/utils";
+import { cn } from "@/pages/api/utils";
 
 
   

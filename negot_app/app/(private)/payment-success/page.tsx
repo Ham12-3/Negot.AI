@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { UploadModal } from "@/components/modals/upload-modal";
+import { UploadModal } from "@/modals/upload-modal";
 
 export default function PaymentSuccess() {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);

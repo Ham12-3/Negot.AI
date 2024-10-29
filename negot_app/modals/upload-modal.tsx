@@ -7,16 +7,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { api } from "@/api/api";
+import { api } from "@/pages/api/api";
 import { useContractStore } from "@/store/zustand";
 import { useMutation } from "@tanstack/react-query";
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { AnimatePresence, motion } from "framer-motion";
 import { Brain, FileText, Loader2, Sparkles, Trash } from "lucide-react";
-import { cn } from "@/api/utils";
-import { Button } from "../ui/button";
-import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
+import { cn } from "@/pages/api/utils";
+import { Button } from "../components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
 import { useRouter } from "next/navigation";
 
 interface IUploadModalProps {

@@ -3,8 +3,8 @@
 import { HeroSection } from "@/components/hero-section";
 import { PricingSection } from "@/components/pricing-section";
 import { Button } from "@/components/ui/button";
-import { api } from "@/api/api";
-import stripePromise from "@/api/stripe";
+import { api } from "@/pages/api/api";
+import stripePromise from "@/pages/api/stripe";
 
 export default function Home() {
   const handleUpgrade = async () => {

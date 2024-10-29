@@ -13,7 +13,7 @@ import {
 import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
-import { cn } from "@/api/utils";
+import { cn } from "@/pages/api/utils";
 
 // Import the background image
 

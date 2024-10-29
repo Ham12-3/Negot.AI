@@ -1,4 +1,4 @@
-import { ConnectAccountModal } from "@/components/modals/connect-account-modal";
+import { ConnectAccountModal } from "@/modals/connect-account-modal";
 
 export function ModalProvider({children}: {children: React.ReactNode}) {
     return (
