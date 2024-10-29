@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/api/utils"; // Utility function for class names
+import { cn } from "@/app/api/utils"; // Utility function for class names
 import { FileText, Home, LayoutDashboard, Settings } from "lucide-react"; // Icons
 import Link from "next/link"; // Link component from Next.js
 import { usePathname } from "next/navigation"; // Hook to get the current pathname

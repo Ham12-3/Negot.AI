@@ -1,5 +1,5 @@
 import { ContractAnalysis } from "@/interfaces/contract.interface";
-import { api } from "@/api/api";
+import { api } from "@/app/api/api";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -45,7 +45,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { cn } from "@/api/utils";
+import { cn } from "@/app/api/utils";
 
 export default function UserContracts() {
   const { data: contracts } = useQuery<ContractAnalysis[]>({

@@ -1,8 +1,8 @@
 "use client";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { useSubscription } from "@/hooks/use-subscription";
-import { api } from "@/api/api";
-import stripePromise from "@/api/stripe";
+import { api } from "@/app/api/api";
+import stripePromise from "@/app/api/stripe";
 import { toast } from "sonner";
 import {
   Card,

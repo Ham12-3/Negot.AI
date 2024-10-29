@@ -3,8 +3,8 @@
 import ContractAnalysisResults from "@/components/analysis/contract-analysis-result";
 import EmptyState from "@/components/analysis/empty-state";
 import { useSubscription } from "@/hooks/use-subscription";
-import { api } from "@/api/api";
-import stripePromise from "@/api/stripe";
+import { api } from "@/app/api/api";
+import stripePromise from "@/app/api/stripe";
 import { useContractStore } from "@/store/zustand";
 import { toast } from "sonner";
 

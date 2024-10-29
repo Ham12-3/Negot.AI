@@ -3,7 +3,7 @@
 import ContractAnalysisResults from "@/components/analysis/contract-analysis-result";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { ContractAnalysis } from "@/interfaces/contract.interface";
-import { api } from "@/api/api";
+import { api } from "@/app/api/api";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 
