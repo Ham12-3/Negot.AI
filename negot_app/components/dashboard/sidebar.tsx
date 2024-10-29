@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { cn } from "@/app/api/utils"; // Utility function for class names
+import { cn } from "@/api/utils"; // Utility function for class names
 import { FileText, Home, LayoutDashboard, Settings } from "lucide-react"; // Icons
 import Link from "next/link"; // Link component from Next.js
 import { usePathname } from "next/navigation"; // Hook to get the current pathname
@@ -33,7 +33,7 @@ const SidebarContent = () => {
           <li>
             <ul role="list" className="-mx-2 space-y-1">
               {sidebarItems.map((item) => (
-                <Navlink key={item.label} path={pathname || ''} link={item} /> // Fallback to empty string if pathname is null
+                <Navlink key={item.label} path={pathname || ""} link={item} /> // Fallback to empty string if pathname is null
               ))}
             </ul>
           </li>
@@ -44,7 +44,10 @@ const SidebarContent = () => {
 };
 
 // Navlink component
-const Navlink = ({ path, link }: {
+const Navlink = ({
+  path,
+  link,
+}: {
   path: string; // Expecting a string
   link: {
     icon: ElementType;
@@ -55,9 +58,9 @@ const Navlink = ({ path, link }: {
 }) => {
   return (
     <li key={link.label}>
-      <Link 
-        href={link.href} 
-        target={link.target} 
+      <Link
+        href={link.href}
+        target={link.target}
         className={cn(
           "group flex h-9 items-center gap-x-3 rounded-md px-3 text-sm font-semibold text-black",
           path === link.href ? "bg-gray-200" : "hover:bg-gray-200"

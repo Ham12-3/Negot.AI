@@ -1,4 +1,3 @@
-
 import {
   Card,
   CardContent,
@@ -9,8 +8,8 @@ import {
 } from "./ui/card";
 import { Button } from "./ui/button";
 import { Check, X } from "lucide-react";
-import { api } from "@/app/api/api";
-import stripePromise from "@/app/api/stripe";
+import { api } from "@/api/api";
+import stripePromise from "@/api/stripe";
 
 export function PricingSection() {
   const handleUpgrade = async () => {
@@ -119,7 +118,7 @@ function PricingCard({
 }: PricingCardProps) {
   return (
     <Card
-    id="pricing-card"
+      id="pricing-card"
       className={`flex flex-col items-center text-center p-6 ${
         highlight ? "border-primary shadow-lg" : ""
       } relative overflow-hidden transition-all duration-300`}
@@ -152,7 +151,9 @@ function PricingCard({
           ))}
         </ul>
       </CardContent>
-      <CardFooter className="mt-6 w-full px-2"> {/* Added padding for a snug fit */}
+      <CardFooter className="mt-6 w-full px-2">
+        {" "}
+        {/* Added padding for a snug fit */}
         <Button
           className="w-full text-lg py-4" // Larger button with extra padding
           variant={highlight ? "default" : "outline"}

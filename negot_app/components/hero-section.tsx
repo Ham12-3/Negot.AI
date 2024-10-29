@@ -1,4 +1,3 @@
-
 import {
   ArrowRight,
   FileSearch,
@@ -13,11 +12,9 @@ import {
 import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
-import { cn } from "@/app/api/utils";
+import { cn } from "@/api/utils";
 
 // Import the background image
-
-
 
 const features = [
   {
@@ -89,10 +86,8 @@ export function HeroSection() {
               className="inline-flex items-center justify-center text-lg"
               size={"lg"}
             >
-              <Link href={"/dashboard"}>
-              Get Started
-              </Link>
-             
+              <Link href={"/dashboard"}>Get Started</Link>
+
               <ArrowRight className="ml-2 size-5" />
             </Button>
             <Button
@@ -100,10 +95,8 @@ export function HeroSection() {
               size={"lg"}
               variant={"outline"}
             >
-              <Link href={"/about"}>
-              Learn More
-              </Link>
-           
+              <Link href={"/about"}>Learn More</Link>
+
               <Globe className="ml-2 size-5" />
             </Button>
           </div>

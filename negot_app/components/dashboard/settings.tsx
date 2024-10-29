@@ -1,8 +1,8 @@
 "use client";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { useSubscription } from "@/hooks/use-subscription";
-import { api } from "@/app/api/api";
-import stripePromise from "@/app/api/stripe";
+import { api } from "@/api/api";
+import stripePromise from "@/api/stripe";
 import { toast } from "sonner";
 import {
   Card,
@@ -135,9 +135,12 @@ export default function Settings() {
               </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" onClick={handleUpgrade} variant={"outline"}>
+              <Button
+                className="w-full"
+                onClick={handleUpgrade}
+                variant={"outline"}
+              >
                 Purchase Lifetime Membership
-
               </Button>
             </CardFooter>
           </Card>

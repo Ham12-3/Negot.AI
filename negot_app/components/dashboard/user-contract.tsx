@@ -1,5 +1,5 @@
 import { ContractAnalysis } from "@/interfaces/contract.interface";
-import { api } from "@/app/api/api";
+import { api } from "@/api/api";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -24,25 +24,29 @@ import {
   TableRow,
 } from "../ui/table";
 import { UploadModal } from "../../modals/upload-modal";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
 
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-  } from "@/components/ui/alert-dialog";
-import { cn } from "@/app/api/utils";
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { cn } from "@/api/utils";
 
-
-  
 export default function UserContracts() {
   const { data: contracts } = useQuery<ContractAnalysis[]>({
     queryKey: ["user-contracts"],
@@ -81,7 +85,7 @@ export default function UserContracts() {
       cell: ({ row }) => {
         const score = parseFloat(row.getValue("overallScore"));
         return (
-            <Badge
+          <Badge
             className={`rounded-md ${
               score > 75
                 ? "bg-green-500 text-white hover:bg-green-400"
@@ -92,8 +96,6 @@ export default function UserContracts() {
           >
             {score.toFixed(2)} Overall Score
           </Badge>
-          
-          
         );
       },
     },
@@ -277,33 +279,29 @@ export default function UserContracts() {
       </div>
 
       <div className="flex items-center justify-end space-x-2 py-4 ">
-        <Button 
-        variant={"outline"}
-        
-        size={"sm"}
-        onClick={()=> table.setPageIndex(0)}
-        disabled={table.getCanPreviousPage()}
+        <Button
+          variant={"outline"}
+          size={"sm"}
+          onClick={() => table.setPageIndex(0)}
+          disabled={table.getCanPreviousPage()}
         >
-            Previous 
+          Previous
         </Button>
 
         <Button
-        variant={"outline"}
-        size={"sm"}
-        onClick={()=> table.nextPage()}
-        disabled={table.getCanNextPage()}
-
+          variant={"outline"}
+          size={"sm"}
+          onClick={() => table.nextPage()}
+          disabled={table.getCanNextPage()}
         >
-            Next
+          Next
         </Button>
-
       </div>
 
       <UploadModal
-      isOpen={isUploadModalOpen}
-      onClose={()=> setIsUploadModalOpen(false)}
-      onUploadComplete={()=> table.reset()}
-
+        isOpen={isUploadModalOpen}
+        onClose={() => setIsUploadModalOpen(false)}
+        onUploadComplete={() => table.reset()}
       />
     </div>
   );
