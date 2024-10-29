@@ -63,9 +63,10 @@ app.use(
       mongoUrl: process.env.MONGODB_URI!, // MongoDB session store
     }),
     cookie: {
-      secure: false, // Use secure cookies in production
+      secure: true, // Use secure cookies in production
       sameSite: "lax", // Cross-site cookie settings
-      maxAge: 24 * 60 * 60 * 1000, // 1-day expiration
+      maxAge: 24 * 60 * 60 * 1000,
+      httpOnly: true, // 1-day expiration
     },
   })
 );
