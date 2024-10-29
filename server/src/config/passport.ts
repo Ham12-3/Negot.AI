@@ -1,22 +1,21 @@
 import passport from "passport";
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-import User, { IUser } from "../models/user.model";
 
-// IMPORTANT: The callbackURL must EXACTLY match what's in Google Console
-const CALLBACK_URL = "https://negot-ai.onrender.com/auth/google/callback";
+import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+
+import User, { IUser } from "../models/user.model";
+import dotenv from "dotenv";
+dotenv.config(); // This should be at the top of your file (or in your main server file)
 
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      callbackURL: CALLBACK_URL,
-      proxy: true,
+      callbackURL: "https://negot-ai.onrender.com/auth/google/callback", // Absolute URL
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
         let user = await User.findOne({ googleId: profile.id });
-
         if (!user) {
           user = await User.create({
             googleId: profile.id,
@@ -28,7 +27,6 @@ passport.use(
 
         done(null, user);
       } catch (error) {
-        console.error("Google Strategy Error:", error);
         done(error as Error, undefined);
       }
     }
@@ -36,15 +34,11 @@ passport.use(
 );
 
 passport.serializeUser((user: any, done) => {
-  done(null, user._id);
+  done(null, user.id);
 });
 
 passport.deserializeUser(async (id: string, done) => {
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch (error) {
-    console.error("Deserialize Error:", error);
-    done(error, null);
-  }
+  const user = await User.findById(id);
+
+  done(null, user);
 });
