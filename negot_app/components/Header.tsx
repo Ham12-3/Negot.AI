@@ -1,10 +1,11 @@
 "use client";
 
-import { cn } from "@/api/utils";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { UserButton } from "./shared/user-button";
+import { cn } from "@/api/utils";
 
 const navItems: { name: string; href: string }[] = [
   { name: "Dashboard", href: "/dashboard" },
