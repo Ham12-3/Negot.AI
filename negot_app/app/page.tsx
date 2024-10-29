@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { api } from "@/pages/api/api";
 import stripePromise from "@/pages/api/stripe";
 
-export default function Home() {
+export default function Page() {
   const handleUpgrade = async () => {
     try {
       const response = await api.get("/payments/create-checkout-session");
