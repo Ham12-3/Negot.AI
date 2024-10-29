@@ -9,109 +9,82 @@ import mongoose from "mongoose";
 import passport from "passport";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import "./config/passport";
+import "./config/passport"; // Import your Passport configuration
 
 // Routes
 import authRoutes from "./routes/auth";
+
 import contractsRoute from "./routes/contract";
+
 import paymentsRoute from "./routes/payments";
 import { handleWebhook } from "./controllers/payment.controller";
 
+// Initialize express app
 const app = express();
 
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URI!)
   .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .catch((err) => console.error(err));
 
-// Webhook route needs to come before express.json() middleware
+// Security headers middleware
+app.use(helmet());
+
+// Logging middleware
+app.use(morgan("dev"));
+
+// webhook
+
 app.post(
   "/payments/webhook",
   express.raw({ type: "application/json" }),
   handleWebhook
 );
 
-// Security headers middleware with correct configuration for OAuth
-app.use(
-  helmet({
-    contentSecurityPolicy: false, // Or configure it properly for your needs
-    crossOriginEmbedderPolicy: false,
-    crossOriginResourcePolicy: { policy: "cross-origin" },
-  })
-);
-
-// Logging middleware
-app.use(morgan("dev"));
-
 // JSON body parser middleware
 app.use(express.json());
 
-// CORS setup with proper configuration for cookies
+// CORS setup
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: process.env.CLIENT_URL, // Allow requests from your frontend
+    credentials: true, // Allow credentials (cookies)
   })
 );
 
-// Session middleware setup
+// **Session middleware setup (must be before passport)**
 app.use(
   session({
-    secret: process.env.SESSION_SECRET!,
-    resave: false,
-    saveUninitialized: false,
+    secret: process.env.SESSION_SECRET!, // Use a strong secret from your .env file
+    resave: false, // Don't save session if not modified
+    saveUninitialized: false, // Don't create session until something is stored
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI!,
-      touchAfter: 24 * 3600, // Only update session once per day unless data changes
+      mongoUrl: process.env.MONGODB_URI!, // MongoDB session store
     }),
     cookie: {
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      maxAge: 24 * 60 * 60 * 1000,
-      httpOnly: true,
-      domain:
-        process.env.NODE_ENV === "production"
-          ? process.env.COOKIE_DOMAIN
-          : undefined,
+      secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // Cross-site cookie settings
+      maxAge: 24 * 60 * 60 * 1000, // 1-day expiration
     },
-    proxy: process.env.NODE_ENV === "production", // Trust the reverse proxy in production
   })
 );
 
-// Initialize Passport
+// Initialize Passport and restore authentication state from session
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Health check route
-app.get("/health", (req, res) => {
-  res.status(200).json({ status: "ok" });
-});
-
 // Routes
 app.use("/auth", authRoutes);
+
 app.use("/contracts", contractsRoute);
+
 app.use("/payments", paymentsRoute);
 
-// Error handling middleware
-app.use(
-  (
-    err: any,
-    req: express.Request,
-    res: express.Response,
-    next: express.NextFunction
-  ) => {
-    console.error(err.stack);
-    res.status(500).json({ error: "Something went wrong!" });
-  }
-);
+// Set the port
+const PORT = 8080;
 
-const PORT = process.env.PORT || 8080;
-
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV}`);
-  console.log(`Client URL: ${process.env.CLIENT_URL}`);
 });
