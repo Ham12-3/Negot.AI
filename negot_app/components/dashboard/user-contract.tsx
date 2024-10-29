@@ -1,5 +1,5 @@
 import { ContractAnalysis } from "@/interfaces/contract.interface";
-import { api } from "@/pages/api/api";
+import { api } from "@/app/api/api";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -39,7 +39,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog";
-import { cn } from "@/pages/api/utils";
+import { cn } from "@/app/api/utils";
 
 
   

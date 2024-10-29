@@ -10,7 +10,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Link from "next/link";
 import { Icons } from "./icons";
-import { logout } from "@/pages/api/api";
+import { logout } from "@/app/api/api";
 
 import { useRouter } from "next/navigation";
 import { useModalStore } from "@/store/zustand";

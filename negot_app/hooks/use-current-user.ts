@@ -1,4 +1,4 @@
-import { api } from "@/pages/api/api";
+import { api } from "@/app/api/api";
 import { useQuery } from "@tanstack/react-query";
 
 export const useCurrentUser = () => {

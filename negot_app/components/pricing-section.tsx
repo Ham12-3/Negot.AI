@@ -9,8 +9,8 @@ import {
 } from "./ui/card";
 import { Button } from "./ui/button";
 import { Check, X } from "lucide-react";
-import { api } from "@/pages/api/api";
-import stripePromise from "@/pages/api/stripe";
+import { api } from "@/app/api/api";
+import stripePromise from "@/app/api/stripe";
 
 export function PricingSection() {
   const handleUpgrade = async () => {
