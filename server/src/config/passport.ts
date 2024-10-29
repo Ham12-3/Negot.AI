@@ -1,21 +1,18 @@
 import passport from "passport";
-
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-
 import User, { IUser } from "../models/user.model";
-import dotenv from "dotenv";
-dotenv.config(); // This should be at the top of your file (or in your main server file)
 
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      callbackURL: `${process.env.BASE_URL}/auth/google/callback`, // Absolute URL
+      callbackURL: "/auth/google/callback",
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
         let user = await User.findOne({ googleId: profile.id });
+
         if (!user) {
           user = await User.create({
             googleId: profile.id,
@@ -34,11 +31,10 @@ passport.use(
 );
 
 passport.serializeUser((user: any, done) => {
-  done(null, user.id);
+  done(null, user._id);
 });
 
 passport.deserializeUser(async (id: string, done) => {
   const user = await User.findById(id);
-
   done(null, user);
 });

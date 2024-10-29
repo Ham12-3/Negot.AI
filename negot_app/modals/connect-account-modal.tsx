@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useModalStore } from "@/store/zustand";
@@ -19,7 +18,7 @@ import { Label } from "../components/ui/label";
 
 function googleSignIn(): Promise<void> {
   return new Promise((resolve) => {
-    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`;
+    window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google/callback`;
     resolve();
   });
 }
@@ -53,45 +52,43 @@ export function ConnectAccountModal() {
       onOpenChange={() => closeModal(modalKey)}
       key={modalKey}
     >
-        <DialogContent>
-      <DialogHeader>
-        <DialogTitle>Connect Google Account</DialogTitle>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Connect Google Account</DialogTitle>
 
-        <DialogDescription>
-          Please connect your Google account to continue
-        </DialogDescription>
-      </DialogHeader>
+          <DialogDescription>
+            Please connect your Google account to continue
+          </DialogDescription>
+        </DialogHeader>
 
-
-<div className="grid gap-4 py-4">
-        <Button
-          onClick={handleGoogleSignIn}
-          disabled={!isAgreed || mutation.isPending}
-          className="w-full"
-        >
-          {mutation.isPending ? (
-            <Loader2 className="mr-2 size-4 animate-spin" />
-          ) : (
-            <>Sign in with Google</>
-          )}
-        </Button>
-
-        <div className="flex items-center space-x-2">
-          <Checkbox
-            id="terms"
-            checked={isAgreed}
-            onCheckedChange={(checked) => setIsAgreed(checked as boolean)}
-          />
-          <Label
-            htmlFor="terms"
-            className="text-sm text-gray-500 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        <div className="grid gap-4 py-4">
+          <Button
+            onClick={handleGoogleSignIn}
+            disabled={!isAgreed || mutation.isPending}
+            className="w-full"
           >
-            I agree to the terms and conditions
-          </Label>
+            {mutation.isPending ? (
+              <Loader2 className="mr-2 size-4 animate-spin" />
+            ) : (
+              <>Sign in with Google</>
+            )}
+          </Button>
+
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="terms"
+              checked={isAgreed}
+              onCheckedChange={(checked) => setIsAgreed(checked as boolean)}
+            />
+            <Label
+              htmlFor="terms"
+              className="text-sm text-gray-500 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              I agree to the terms and conditions
+            </Label>
+          </div>
         </div>
-      </div>
-</DialogContent>
-     
+      </DialogContent>
     </Dialog>
   );
 }
