@@ -19,6 +19,9 @@ import { handleWebhook } from "./controllers/payment.controller";
 
 const app = express();
 
+// Add this before other middleware
+app.set('trust proxy', 1);
+
 // Database connection
 mongoose
   .connect(process.env.MONGODB_URI!)
@@ -30,6 +33,7 @@ app.use(
   cors({
     origin: process.env.CLIENT_URL, // Frontend URL from environment variable
     credentials: true, // Allow cookies to be sent with requests
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Add explicit methods
   })
 );
 
@@ -56,6 +60,8 @@ app.use(
       secure: process.env.NODE_ENV === "production", // Only HTTPS in production
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // Cross-site cookies in production
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      httpOnly: true, // Prevent client-side access to the cookie
+      domain: process.env.NODE_ENV === "production" ? process.env.COOKIE_DOMAIN : undefined // Add your domain in production
     },
   })
 );
