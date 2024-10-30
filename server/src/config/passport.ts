@@ -11,7 +11,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      callbackURL: "/auth/google/callback", // Absolute URL
+      callbackURL: "https://negot-ai.onrender.com/auth/google/callback", // Absolute URL
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
