@@ -6,32 +6,36 @@
 <h2>The Home Page</h2>
 <hr>
 
-![image](https://github.com/user-attachments/assets/5ebabce1-c669-4759-b0dc-0117fbbefff6)
+![image](https://github.com/user-attachments/assets/cb040415-dacf-479a-ba4b-b30afce3276f)
+
 
 <hr>
 <h3>The Pricing section</h3>
 <hr>
 
-![image](https://github.com/user-attachments/assets/c42451c1-0b08-40ae-94f0-48b158ca517b)
+![image](https://github.com/user-attachments/assets/570a6feb-aed6-457a-a201-91dbba9d44a6)
+
 
 <h3>The dashboard page</h3>
 <hr>
 
-![image](https://github.com/user-attachments/assets/f4dd0962-0690-478a-a63c-4bf6300af273)
+![image](https://github.com/user-attachments/assets/5c535c20-f7c0-4069-8f26-a44f04d797cc)
+
 
 <hr>
 
 <h3>The side bar</h3>
 <hr>
 
-![image](https://github.com/user-attachments/assets/6010fc85-48ff-4835-8342-379ba2877abc)
+![image](https://github.com/user-attachments/assets/ce778fc3-79a4-43e7-b161-cffba249a50c)
 
 <hr>
 
 <h3>Settings</h3>
 <hr>
 
-![image](https://github.com/user-attachments/assets/25d0eb27-ed15-4349-ab1b-27be7c2fabbb)
+![image](https://github.com/user-attachments/assets/cb5a200c-cb9a-49bb-8c95-64d8e58680fc)
+
 
 <hr>
 
@@ -39,48 +43,26 @@
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/322caddf-a67c-4058-98ee-165f57be8325)
+![image](https://github.com/user-attachments/assets/150958e0-d0f0-4430-868c-06394f989ddc)
+
 
 <hr>
 <h3>About US</h3>
 
 <hr>
 
-![image](https://github.com/user-attachments/assets/6677f95e-66c4-4a76-8bd9-788ee16b68ef)
+![image](https://github.com/user-attachments/assets/9b90516c-c372-4287-8814-2293df75cd8a)
+
 
 <hr>
 
 <h3>The profile info</h3>
 <hr>
 
-![image](https://github.com/user-attachments/assets/978e9e6d-f13d-4198-b438-50d3a995fe5c)
-
-<hr>
-
-<h3>Dragging of contracts to analyse by AI</h3>
-
-<hr>
-
-![image](https://github.com/user-attachments/assets/c5ee9179-1ee3-42e2-a263-bb28389e596e)
-<hr>
-
-![image](https://github.com/user-attachments/assets/ac84e663-394e-42e2-8674-6feda8a72c2e)
+![image](https://github.com/user-attachments/assets/666defa9-1898-498c-ac12-9788306f3a8e)
 
 
-<hr>
 
-![image](https://github.com/user-attachments/assets/7fb781bb-b7ee-4499-a745-c92562976ead)
-
-<hr>
-
-![image](https://github.com/user-attachments/assets/c3de8f52-2a14-4582-aead-864829c46e3a)
-
-<h3>The entire results</h3>
-
-<hr>
-
-
-![image](https://github.com/user-attachments/assets/d8fd0e55-21d4-4721-8769-4e03c37b4f6c)
 
 
 
