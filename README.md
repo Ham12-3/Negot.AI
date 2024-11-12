@@ -62,6 +62,15 @@
 ![image](https://github.com/user-attachments/assets/666defa9-1898-498c-ac12-9788306f3a8e)
 
 
+<hr>
+<h3>Th checkout page</h3>
+
+<hr>
+
+![image](https://github.com/user-attachments/assets/f8577230-56e8-4fd6-bd43-fca2c63bdf64)
+
+
+
 
 
 
